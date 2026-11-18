@@ -1,0 +1,6 @@
+# base original da SSP (108 MB, passa do limite do GitHub): baixar no portal da SSP
+dados/*.xlsx
+
+__pycache__/
+.ipynb_checkpoints/
+.vercel/

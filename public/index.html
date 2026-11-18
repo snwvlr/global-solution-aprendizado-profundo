@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roubo ou furto? | Classificador MLP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="conteudo">
+      <h1>Roubo ou furto?</h1>
+      <p>Classificador de ocorrências de subtração de celular na cidade de São Paulo com uma rede neural MLP</p>
+    </div>
+  </header>
+
+  <main class="conteudo">
+    <section class="cartao">
+      <h2>Características da ocorrência</h2>
+      <p class="ajuda">Informe como foi a ocorrência. O modelo estima se ela é mais compatível com roubo ou com furto.</p>
+
+      <form class="formulario" onsubmit="classificar(event)">
+        <label>
+          Região (delegacia da área)
+          <select name="regiao" required></select>
+        </label>
+        <label>
+          Período do dia
+          <select name="periodo" required></select>
+        </label>
+        <label>
+          Dia da semana
+          <select name="dia_semana" required></select>
+        </label>
+        <label>
+          Tipo de local
+          <select name="local" required></select>
+        </label>
+        <label>
+          Marca do celular
+          <select name="marca" required></select>
+        </label>
+        <label>
+          Quantidade de celulares levados
+          <select name="qtd_celulares" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <button type="submit" class="btn">Classificar</button>
+      </form>
+      <p class="mensagem"></p>
+    </section>
+
+    <section class="cartao resultado escondido">
+      <h2>Resultado</h2>
+      <p class="classe"></p>
+      <div class="barra-linha">
+        <span>Roubo</span>
+        <div class="barra"><div class="barra-roubo"></div></div>
+        <b class="valor-roubo"></b>
+      </div>
+      <div class="barra-linha">
+        <span>Furto</span>
+        <div class="barra"><div class="barra-furto"></div></div>
+        <b class="valor-furto"></b>
+      </div>
+      <p class="interpretacao"></p>
+    </section>
+
+    <section class="cartao sobre">
+      <h2>Sobre o modelo</h2>
+      <p class="arquitetura"></p>
+      <div class="metricas">
+        <div class="metrica"><b class="m-accuracy">-</b><span>Accuracy</span></div>
+        <div class="metrica"><b class="m-precision">-</b><span>Precision</span></div>
+        <div class="metrica"><b class="m-recall">-</b><span>Recall</span></div>
+        <div class="metrica"><b class="m-f1">-</b><span>F1-score</span></div>
+      </div>
+      <p class="ajuda">
+        Métricas no conjunto de teste, com a classe roubo como positiva. Treinado com boletins de 2025 da base
+        <i>Celulares Subtraídos</i> da SSP-SP, filtrados para fatos ocorridos na capital.
+      </p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="conteudo rodape-grade">
+      <div>
+        <h3>Integrantes</h3>
+        <p>João Vitor Anunciação Oliveira - RM567539</p>
+        <p>Paulo Ribeiro Marinho - RM567459</p>
+      </div>
+      <div>
+        <h3>Disciplina</h3>
+        <p>Aprendizado Profundo com Redes Neurais Convolucionais</p>
+        <p>Global Solution 2026.2 - FIAP</p>
+      </div>
+      <div>
+        <h3>Dados</h3>
+        <p>Secretaria da Segurança Pública de São Paulo (SSP-SP)</p>
+        <p><a href="https://www.ssp.sp.gov.br/estatistica/consultas" target="_blank">Portal de Estatísticas</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
